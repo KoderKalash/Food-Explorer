@@ -68,8 +68,12 @@ export default function HomePage() {
   const fetchProducts = useCallback(
     async (pageNum = 1, reset = false) => {
       try {
-        pageNum === 1 ? setLoading(true) : setLoadingMore(true)
-        setError("")
+        if (pageNum === 1) {
+          setLoading(true);
+        } else {
+          setLoadingMore(true);
+        }
+        setError("");
 
         const params = new URLSearchParams({
           page: pageNum.toString(),
@@ -116,7 +120,7 @@ export default function HomePage() {
   const handleBarcodeSearch = (e: React.FormEvent) => {
     e.preventDefault()
     setPage(1)
-    setSearchTerm("") 
+    setSearchTerm("")
     fetchProducts(1, true)
   }
 
@@ -304,11 +308,10 @@ export default function HomePage() {
                           <div className="flex items-center gap-1">
                             <span className="text-xs text-gray-600">Grade:</span>
                             <div
-                              className={`w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold ${
-                                NUTRITION_GRADE_COLORS[
-                                  product.nutrition_grades.toLowerCase() as keyof typeof NUTRITION_GRADE_COLORS
+                              className={`w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold ${NUTRITION_GRADE_COLORS[
+                                product.nutrition_grades.toLowerCase() as keyof typeof NUTRITION_GRADE_COLORS
                                 ] || "bg-gray-400"
-                              }`}
+                                }`}
                             >
                               {product.nutrition_grades.toUpperCase()}
                             </div>

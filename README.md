@@ -4,6 +4,11 @@
 A responsive web application built with **Next.js** and **TypeScript** that lets users search, filter, and explore food products from around the world using the [OpenFoodFacts API](https://world.openfoodfacts.org/). Users can view product details, search by name or barcode, filter by category, and sort based on nutrition or name.
 
 ---
+# 🧮 Filter Feature
+
+**Search & Filter System**: Users can search by product name or barcode, filter by food categories (dairy, snacks, etc.), and sort by name or nutrition grade. All requests go through a Next.js API route that fetches data from OpenFoodFacts and returns filtered results to the frontend.
+
+---
 
 ## ✨ Features
 
